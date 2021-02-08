@@ -34,8 +34,8 @@ const createApp = () => {
   app.use(express.json())
   app.use(express.urlencoded({extended: true}))
 
-  // compression middleware
-  app.use(compression())
+  // compression middleware.. howz it work? def need the dep
+  //app.use(compression())
 
   // session middleware with passport
   app.use(
