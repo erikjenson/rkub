@@ -6,11 +6,17 @@ const User = db.define('user', {
   email: {
     type: Sequelize.STRING,
     unique:true,
-    allowNull: false
+    allowNull: false,
+    validate : {
+      notEmpty: true
+   }
   },
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate : {
+      notEmpty: true
+   }
   },
   image: {
     type: Sequelize.INTEGER,
@@ -18,6 +24,10 @@ const User = db.define('user', {
   },
   password: {
     type: Sequelize.STRING,
+    allowNull: false,
+    validate : {
+      notEmpty: true
+   },
     // Making `.password` act like a func hides it when serializing to JSON.
     // This is a hack to get around Sequelize's lack of a "private" option.
     get() {
@@ -34,6 +44,16 @@ const User = db.define('user', {
   }
 })
 
+/**
+ * instanceMethods
+ */
+User.prototype.correctPassword = function(candidatePwd) {
+  return User.encryptPassword(candidatePwd, this.salt()) === this.password()
+}
+
+/**
+ * classMethods
+ */
 module.exports = User
 
 User.generateSalt = function() {

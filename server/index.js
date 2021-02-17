@@ -8,7 +8,7 @@ const db = require('./db')
 const sessionStore = new SequelizeStore({db})
 const socketio = require('socket.io')
 const passport = require('passport')
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 7070
 module.exports = app
 
 if (process.env.NODE_ENV !== 'production') require('../secrets')
@@ -50,7 +50,7 @@ const createApp = () => {
   app.use(passport.session())
 
   // auth and api routes
-  //app.use('/auth', require('./auth'))
+  app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
 
   // static file-serving middleware

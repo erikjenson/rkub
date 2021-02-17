@@ -1,13 +1,12 @@
 body {
-  font-family: sans-serif;
+  color: crimson;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
 }
 
 a {
   text-decoration: none;
-}
-
-label {
-  display: block;
+  color: blue;
 }
 
 nav a {
@@ -18,4 +17,55 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.navHead {
+  border: 0;
+  margin: 0;
+  text-align: center;
+  /* text-shadow: -10px 10px 0px #00e6e6; */
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.authSubmit {
+  font-size: 20px;
+  border-radius: 5px;
+  border-color: blue;
+  border-width: 5px;
+  margin: 10px;
+  height: auto;
+  width: auto;
+}
+
+.navBar,
+.hero {
+  text-align: center;
+}
+/* label small {
+  text-align: left;
+} */
+.authForm * {
+  margin: 5px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  text-align: left;
+}
+
+.authForm input {
+  width: 200px;
+}
+
+.active {
+  font-size: 20px;
+  text-shadow: 1px 1px 1px #c0c4ce;
+}
+
+.logout * {
+  text-align: center;
+  margin: 16px;
 }
